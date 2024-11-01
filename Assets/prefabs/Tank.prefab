@@ -5007,6 +5007,8 @@ GameObject:
   - component: {fileID: 5731540438565153221}
   - component: {fileID: 5731540438565153220}
   - component: {fileID: 5731540438565153223}
+  - component: {fileID: 2660792464176846843}
+  - component: {fileID: 8322560626918916914}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Player
@@ -5074,6 +5076,39 @@ MonoBehaviour:
   m_turretAsset: {fileID: 5731540438564762432}
   m_Speed: 12
   m_TurnSpeed: 180
+--- !u!114 &2660792464176846843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5731540438565252970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1470b2b43085d44843a5f86267704d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_startingHealth: 100
+  m_ExplosionPrefab: {fileID: 2293207993434329540}
+  m_CurrentHealth: 90.4866
+--- !u!114 &8322560626918916914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5731540438565252970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a494ec39955c345a012d645fd668b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Shell: {fileID: -2528383320732217578, guid: 5b0c29ccc5fa9484ba9c7dbc8eac1db6,
+    type: 3}
+  m_Firetransform: {fileID: 0}
+  m_LaunchForce: 30
+  m_CannonSfx: {fileID: 8300000, guid: b527ac10cd9ff6140ab56f12fa257f91, type: 3}
+  m_ExplosionSfx: {fileID: 8300000, guid: 0af33bb9b48ae624c93d9ad52896d3fc, type: 3}
 --- !u!1 &5731540438565252972
 GameObject:
   m_ObjectHideFlags: 0

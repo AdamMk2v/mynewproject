@@ -368,6 +368,9 @@ GameObject:
   - component: {fileID: 3389929107859510198}
   - component: {fileID: 3389929107859510197}
   - component: {fileID: 1782688991360664994}
+  - component: {fileID: 5237300539904341112}
+  - component: {fileID: 104566712310695161}
+  - component: {fileID: 6581660946211854414}
   m_Layer: 0
   m_Name: enemytank
   m_TagString: Untagged
@@ -454,3 +457,49 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5237300539904341112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389929107857548750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5becc55829bbde34fb5889906eefed51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CloseDistance: 8
+  m_Turret: {fileID: 3389929107857652196}
+--- !u!114 &104566712310695161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389929107857548750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c08cee67518ac47b5657227bdcce3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Shell: {fileID: 3025097846860090859, guid: 04d3be275f542044ab04aabda1343b9b, type: 3}
+  m_FireTransform: {fileID: 0}
+  m_LaunchForce: 30
+  m_ShootDelay: 1
+--- !u!114 &6581660946211854414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389929107857548750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1470b2b43085d44843a5f86267704d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_startingHealth: 50
+  m_ExplosionPrefab: {fileID: 2053087478286634857, guid: cfcfcd2f88ebb7e459c602a5aedaee48,
+    type: 3}
+  m_CurrentHealth: 0

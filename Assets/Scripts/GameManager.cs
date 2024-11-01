@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
     public GameObject[] m_Tanks;
     private float m_gameTime = 0;
     public int[] bestTimes = new int[10];
-    public HighScores m_HighScores;
+    private HighScores m_HighScores;
+    public AudioSource m_AudioSource;
+    public AudioClip m_GameMusic;
 
     public enum GameState
     {
@@ -49,6 +51,10 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         m_GameState = GameState.Start;
+        m_HighScores = GetComponent<HighScores>();
+        m_AudioSource = GetComponent<AudioSource>();
+        m_AudioSource.clip = m_GameMusic;
+        m_AudioSource.Play();
     }
 
     void SetTanksEnable(bool enabled)

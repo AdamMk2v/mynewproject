@@ -8,11 +8,17 @@ public class HighScores : MonoBehaviour
     public string scoreFileName = "highscores.txt";
     string currentDirectory;
     int[] scores = new int[10];
-          
+    
+    void Awake()
+    {
+        currentDirectory = Application.dataPath;
+        Debug.Log("Our current Directory is:" + currentDirectory);
+    }
+    
     public void LoadScoresFromFile()
     {
         bool fileExists = File.Exists(currentDirectory + "\\" + scoreFileName);
-        if(fileExists == true)
+        if (fileExists == true)
         {
             Debug.Log("Found high score file" + scoreFileName);
             scores = new int[scores.Length];
@@ -24,7 +30,6 @@ public class HighScores : MonoBehaviour
             while (fileReader.Peek() != 0 && scoreCount < scores.Length)
             {
                 string fileline = fileReader.ReadLine();
-
                 int readScore = -1;
                 bool didParse = int.TryParse(fileline, out readScore);
 
@@ -35,15 +40,16 @@ public class HighScores : MonoBehaviour
                 else
                 {
                     Debug.Log("Invalid line in scores file at " + scoreCount +
-                        ", using default value.");
+                              ", using default value.");
                     scores[scoreCount] = 0;
                 }
-                scoreCount++;
 
+                scoreCount++;
             }
+
             fileReader.Close();
         }
-        else 
+        else
         {
             Debug.Log("The file" + scoreFileName + "Does not exist, no scores loaded");
             return;
@@ -52,21 +58,15 @@ public class HighScores : MonoBehaviour
 
     public void SaveScoreToFile()
     {
-        StreamWriter fileWriter = new StreamWriter(currentDirectory + "\\"+ scoreFileName);
+        StreamWriter fileWriter = new StreamWriter(currentDirectory + "\\" + scoreFileName);
         for (int i = 0; i < scores.Length; i++)
         {
             fileWriter.WriteLine(scores[i]);
         }
+
         fileWriter.Close();
         Debug.Log("Sucessfully written to file");
     }
-
-    void Awake()
-    {
-        currentDirectory = Application.dataPath;
-        Debug.Log("Our current Directory is:" + currentDirectory);
-    }
-
 
     public void SetScores(int[] newScores)
     {
@@ -79,9 +79,4 @@ public class HighScores : MonoBehaviour
         LoadScoresFromFile();
         return scores;
     }
-
-
-
-
-
 }

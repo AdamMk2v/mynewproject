@@ -13,25 +13,6 @@ public class EnemyTankMovement : MonoBehaviour
     private Rigidbody m_Rigidbody;
 
 
- 
-
-    void Awake()
-    {
-        m_NavAgent = GetComponent<NavMeshAgent>();
-        m_Target = GameObject.FindGameObjectWithTag("Player").transform;
-        // Debug.Log(m_Target);
-
-        m_Rigidbody = GetComponent<Rigidbody>();
-
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
     private void OnEnable()
     {
         m_Rigidbody.isKinematic = false;
@@ -39,18 +20,25 @@ public class EnemyTankMovement : MonoBehaviour
 
     private void OnDisable()
     {
-
         m_Rigidbody.isKinematic = true;
     }
-    // Update is called once per frame
+
+    void Awake()
+    {
+        m_NavAgent = GetComponent<NavMeshAgent>();
+        m_Target = GameObject.FindGameObjectWithTag("Player").transform;
+        m_Rigidbody = GetComponent<Rigidbody>();
+    }
+
     void Update()
     {
-
         if (m_Follow == false)
         {
             return;
         }
- 
+
+        MoveTowards();
+        TurretLook();
     }
 
     void MoveTowards()
@@ -68,41 +56,31 @@ public class EnemyTankMovement : MonoBehaviour
         {
             m_NavAgent.isStopped = true;
         }
-
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.tag == "Player")
         {
             m_Follow = true;
         }
-
     }
 
 
     private void OnTriggerExit(Collider other)
     {
-
         if (other.tag == "Player")
         {
             m_Follow = false;
         }
-
-
     }
 
     void TurretLook()
     {
-
         if (m_Turret != null)
         {
             m_Turret.LookAt(m_Target);
-
         }
-
     }
-
 }
